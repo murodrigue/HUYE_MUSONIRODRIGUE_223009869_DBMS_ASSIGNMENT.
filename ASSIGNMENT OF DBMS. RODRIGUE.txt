@@ -1,0 +1,252 @@
+mysql> create database RUHANDE;
+mysql> USE RUHANDE;
+Database changed
+mysql> CREATE TABLE NGOMA(
+    -> ID  INT,
+    -> FNAME  VARCHAR(23),
+    -> LNAME   VARCHAR(23),
+    -> GENDER   VARCHAR(6),
+    -> PROVINCE   VARCHAR(12),
+    -> DISTRICT    VARCHAR(12),
+    -> SECTOR     VARCHAR(12),
+    -> EMAIL   VARCHAR(40),
+    -> PHONE  INT(12),
+    -> CELL  VARCHAR(12),
+    -> PRIMARY KEY (ID)
+    -> );
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> INSERT INTO NGOMA VALUES(01,"MUHINDA","ONOLINE","FEMALE","SOUTH","RUHANGO","KINAZI","MUHINDA@GMAIL.COM",0785555444,"RUTABO");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM NGOMA;
+
+| ID | FNAME   | LNAME   | GENDER | PROVINCE | DISTRICT | SECTOR | EMAIL             | PHONE     | CELL   |
++----+---------+---------+--------+----------+----------+--------+-------------------+-----------+--------+
+|  1 | MUHINDA | ONOLINE | FEMALE | SOUTH    | RUHANGO  | KINAZI | MUHINDA@GMAIL.COM | 785555444 | RUTABO |
++----+---------+---------+--------+----------+----------+--------+-------------------+-----------+--------+
+
+mysql> INSERT INTO NGOMA VALUES(02,"RUTHA","JOEL","MALE","SOUTH","RUHANGO","KINIHIRA","JOEDA@GMAIL.COM",07834455444,"RUTWEO");
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(03,"MUJAWAMARIA","CLAUDINE","FEMALE","NORTH","RLINDOO","KAMENA","CLUADINA@GMAIL.COM",07885543444,"RUHOGO");
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(03,"MUJAWAMARIA","CLAUDINE","FEMALE","NORTH","RLINDOO","KAMENA","CLUADINA@GMAIL.COM",07885543444,"RUHOGO");
+ERROR 1062 (23000): Duplicate entry '3' for key 'ngoma.PRIMARY'
+mysql> INSERT INTO NGOMA VALUES(04,"MURUNGI","PEACE","FEMALE","WEST","RUBAVU","MUHAZIA","PEACEA@GMAIL.COM",078987644,"GITWA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES(05,"NYIRANZIZA","FELECITE","FEMALE","SOUTH","GICUMBI","KAGEYO","FELECIA@GMAIL.COM",07955644,"GAHANGA");
+Query OK, 1 row affected (0.00 sec)
+
+ "> mysql> SELECT * FROM NGOMA;
+    "> +----+-------------+----------+--------+----------+----------+----------+--------------------+------------+---------+
+    "> | ID | FNAME       | LNAME    | GENDER | PROVINCE | DISTRICT | SECTOR   | EMAIL              | PHONE      | CELL    |
+    "> +----+-------------+----------+--------+----------+----------+----------+--------------------+------------+---------+
+    "> |  1 | MUHINDA     | ONOLINE  | FEMALE | SOUTH    | RUHANGO  | KINAZI   | MUHINDA@GMAIL.COM  |  785555444 | RUTABO  |
+    "> |  2 | RUTHA       | JOEL     | MALE   | SOUTH    | RUHANGO  | KINIHIRA | JOEDA@GMAIL.COM    | 2147483647 | RUTWEO  |
+    "> |  3 | MUJAWAMARIA | CLAUDINE | FEMALE | NORTH    | RLINDOO  | KAMENA   | CLUADINA@GMAIL.COM | 2147483647 | RUHOGO  |
+    "> |  4 | MURUNGI     | PEACE    | FEMALE | WEST     | RUBAVU   | MUHAZIA  | PEACEA@GMAIL.COM   |   78987644 | GITWA   |
+    "> |  5 | NYIRANZIZA  | FELECITE | FEMALE | SOUTH    | GICUMBI  | KAGEYO   | FELECIA@GMAIL.COM  |    7955644 | GAHANGA |
+    "> +----+-------------+----------+--------+----------+----------+----------+--------------------+------------+---------+
+
+
+mysql> INSERT INTO NGOMA VALUES (06,"MUSONI","RODRIGUE","MALE","KIGALI","GASABO","KIMIHURURA","MUSONI@GMAIL.COM",0785530042,"GASHUSHYA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES (07,"MUHIZI","VEDASTE","MALE","KIGALI","KICIKIRO","KARAMA","MUHIZI@GMAIL.COM",07855307742,"GATENGA")Y
+    -> INSERT INTO NGOMA VALUES (07,"MUHIZI","VEDASTE","MALE","KIGALI","KICIKIRO","KARAMA","MUHIZI@GMAIL.COM",07855307742,"GATENGA");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Y
+INSERT INTO NGOMA VALUES (07,"MUHIZI","VEDASTE","MALE","KIGALI","KICIKIRO","KA' at line 1
+mysql>  INSERT INTO NGOMA VALUES (07,"MUHIZI","VEDASTE","MALE","KIGALI","KICIKIRO","KARAMA","MUHIZI@GMAIL.COM",07855307742,"GATENGA");
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES (08,"NIYERA","PELINE","FEMALE","EAST","KAYONZA","KIMIHURURA","NIYERA@GMAIL.COM",0796630042,"GASHUSHYA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES (07,"IRADUNDA","OLIVIER","MALE","KIGALI","KICIKIRO","KARAMA","OLIVIERI@GMAIL.COM",078765307742,"GATENGA");
+ERROR 1062 (23000): Duplicate entry '7' for key 'ngoma.PRIMARY'
+mysql> INSERT INTO NGOMA VALUES (09,"IRADUNDA","OLIVIER","MALE","KIGALI","KICIKIRO","KARAMA","OLIVIERI@GMAIL.COM",078765307742,"GATENGA");
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> INSERT INTO NGOMA VALUES (10,"IRADUNDA","OBED","MALE","KIGALI","KICIKIRO","KARAMA","OBED@GMAIL.COM",078765307742,"GATENGOA");
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT * FROM NGOMA;
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+| ID | FNAME       | LNAME    | GENDER | PROVINCE | DISTRICT | SECTOR     | EMAIL              | PHONE      | CELL      |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+|  1 | MUHINDA     | ONOLINE  | FEMALE | SOUTH    | RUHANGO  | KINAZI     | MUHINDA@GMAIL.COM  |  785555444 | RUTABO    |
+|  2 | RUTHA       | JOEL     | MALE   | SOUTH    | RUHANGO  | KINIHIRA   | JOEDA@GMAIL.COM    | 2147483647 | RUTWEO    |
+|  3 | MUJAWAMARIA | CLAUDINE | FEMALE | NORTH    | RLINDOO  | KAMENA     | CLUADINA@GMAIL.COM | 2147483647 | RUHOGO    |
+|  4 | MURUNGI     | PEACE    | FEMALE | WEST     | RUBAVU   | MUHAZIA    | PEACEA@GMAIL.COM   |   78987644 | GITWA     |
+|  5 | NYIRANZIZA  | FELECITE | FEMALE | SOUTH    | GICUMBI  | KAGEYO     | FELECIA@GMAIL.COM  |    7955644 | GAHANGA   |
+|  6 | MUSONI      | RODRIGUE | MALE   | KIGALI   | GASABO   | KIMIHURURA | MUSONI@GMAIL.COM   |  785530042 | GASHUSHYA |
+|  7 | MUHIZI      | VEDASTE  | MALE   | KIGALI   | KICIKIRO | KARAMA     | MUHIZI@GMAIL.COM   | 2147483647 | GATENGA   |
+|  8 | NIYERA      | PELINE   | FEMALE | EAST     | KAYONZA  | KIMIHURURA | NIYERA@GMAIL.COM   |  796630042 | GASHUSHYA |
+|  9 | IRADUNDA    | OLIVIER  | MALE   | KIGALI   | KICIKIRO | KARAMA     | OLIVIERI@GMAIL.COM | 2147483647 | GATENGA   |
+| 10 | IRADUNDA    | OBED     | MALE   | KIGALI   | KICIKIRO | KARAMA     | OBED@GMAIL.COM     | 2147483647 | GATENGOA  |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+10 rows in set (0.00 sec)
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA DROP COLLUMN AGE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AGE' at line 1
+mysql> ALTER TABLE NGOMA DROP COLUMN AGE;
+Query OK, 10 rows affected (0.06 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT ID,LNAME,GENDER FROM NGOMA;
++----+----------+--------+
+| ID | LNAME    | GENDER |
++----+----------+--------+
+|  1 | ONOLINE  | FEMALE |
+|  2 | JOEL     | MALE   |
+|  3 | CLAUDINE | FEMALE |
+|  4 | PEACE    | FEMALE |
+|  5 | FELECITE | FEMALE |
+|  6 | RODRIGUE | MALE   |
+|  7 | VEDASTE  | MALE   |
+|  8 | PELINE   | FEMALE |
+|  9 | OLIVIER  | MALE   |
+| 10 | OBED     | MALE   |
++----+----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE GENDER="MALE";
++----+----------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+| ID | FNAME    | LNAME    | GENDER | PROVINCE | DISTRICT | SECTOR     | EMAIL              | PHONE      | CELL      |
++----+----------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+|  2 | RUTHA    | JOEL     | MALE   | SOUTH    | RUHANGO  | KINIHIRA   | JOEDA@GMAIL.COM    | 2147483647 | RUTWEO    |
+|  6 | MUSONI   | RODRIGUE | MALE   | KIGALI   | GASABO   | KIMIHURURA | MUSONI@GMAIL.COM   |  785530042 | GASHUSHYA |
+|  7 | MUHIZI   | VEDASTE  | MALE   | KIGALI   | KICIKIRO | KARAMA     | MUHIZI@GMAIL.COM   | 2147483647 | GATENGA   |
+|  9 | IRADUNDA | OLIVIER  | MALE   | KIGALI   | KICIKIRO | KARAMA     | OLIVIERI@GMAIL.COM | 2147483647 | GATENGA   |
+| 10 | IRADUNDA | OBED     | MALE   | KIGALI   | KICIKIRO | KARAMA     | OBED@GMAIL.COM     | 2147483647 | GATENGOA  |
++----+----------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE GENDER=FEMALE;
+ERROR 1054 (42S22): Unknown column 'FEMALE' in 'where clause'
+mysql> SELECT * FROM NGOMA WHERE GENDER=FEMALE;
+ERROR 1054 (42S22): Unknown column 'FEMALE' in 'where clause'
+mysql> SELECT * FROM NGOMA WHERE GENDER="FEMALE";
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+| ID | FNAME       | LNAME    | GENDER | PROVINCE | DISTRICT | SECTOR     | EMAIL              | PHONE      | CELL      |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+|  1 | MUHINDA     | ONOLINE  | FEMALE | SOUTH    | RUHANGO  | KINAZI     | MUHINDA@GMAIL.COM  |  785555444 | RUTABO    |
+|  3 | MUJAWAMARIA | CLAUDINE | FEMALE | NORTH    | RLINDOO  | KAMENA     | CLUADINA@GMAIL.COM | 2147483647 | RUHOGO    |
+|  4 | MURUNGI     | PEACE    | FEMALE | WEST     | RUBAVU   | MUHAZIA    | PEACEA@GMAIL.COM   |   78987644 | GITWA     |
+|  5 | NYIRANZIZA  | FELECITE | FEMALE | SOUTH    | GICUMBI  | KAGEYO     | FELECIA@GMAIL.COM  |    7955644 | GAHANGA   |
+|  8 | NIYERA      | PELINE   | FEMALE | EAST     | KAYONZA  | KIMIHURURA | NIYERA@GMAIL.COM   |  796630042 | GASHUSHYA |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="KICIKIRO"AND"RUHANGO";
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="KICIKIRO";
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+| ID | FNAME    | LNAME   | GENDER | PROVINCE | DISTRICT | SECTOR | EMAIL              | PHONE      | CELL     |
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+|  7 | MUHIZI   | VEDASTE | MALE   | KIGALI   | KICIKIRO | KARAMA | MUHIZI@GMAIL.COM   | 2147483647 | GATENGA  |
+|  9 | IRADUNDA | OLIVIER | MALE   | KIGALI   | KICIKIRO | KARAMA | OLIVIERI@GMAIL.COM | 2147483647 | GATENGA  |
+| 10 | IRADUNDA | OBED    | MALE   | KIGALI   | KICIKIRO | KARAMA | OBED@GMAIL.COM     | 2147483647 | GATENGOA |
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+3 rows in set (0.00 sec)
+
+mysql>  SELECT * FROM NGOMA WHERE DISTRICT="KICIKIRO" OR "RUHANGO";
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+| ID | FNAME    | LNAME   | GENDER | PROVINCE | DISTRICT | SECTOR | EMAIL              | PHONE      | CELL     |
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+|  7 | MUHIZI   | VEDASTE | MALE   | KIGALI   | KICIKIRO | KARAMA | MUHIZI@GMAIL.COM   | 2147483647 | GATENGA  |
+|  9 | IRADUNDA | OLIVIER | MALE   | KIGALI   | KICIKIRO | KARAMA | OLIVIERI@GMAIL.COM | 2147483647 | GATENGA  |
+| 10 | IRADUNDA | OBED    | MALE   | KIGALI   | KICIKIRO | KARAMA | OBED@GMAIL.COM     | 2147483647 | GATENGOA |
++----+----------+---------+--------+----------+----------+--------+--------------------+------------+----------+
+3 rows in set, 1 warning (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="KICIKIRO" AND "RUHANGO";
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="RUHANGO";
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+| ID | FNAME   | LNAME   | GENDER | PROVINCE | DISTRICT | SECTOR   | EMAIL             | PHONE      | CELL   |
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+|  1 | MUHINDA | ONOLINE | FEMALE | SOUTH    | RUHANGO  | KINAZI   | MUHINDA@GMAIL.COM |  785555444 | RUTABO |
+|  2 | RUTHA   | JOEL    | MALE   | SOUTH    | RUHANGO  | KINIHIRA | JOEDA@GMAIL.COM   | 2147483647 | RUTWEO |
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="KICIKIRO" AND "RUHANGO";
+Empty set, 1 warning (0.00 sec)
+
+mysql> SELECT * FROM NGOMA WHERE DISTRICT="RUHANGO";
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+| ID | FNAME   | LNAME   | GENDER | PROVINCE | DISTRICT | SECTOR   | EMAIL             | PHONE      | CELL   |
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+|  1 | MUHINDA | ONOLINE | FEMALE | SOUTH    | RUHANGO  | KINAZI   | MUHINDA@GMAIL.COM |  785555444 | RUTABO |
+|  2 | RUTHA   | JOEL    | MALE   | SOUTH    | RUHANGO  | KINIHIRA | JOEDA@GMAIL.COM   | 2147483647 | RUTWEO |
++----+---------+---------+--------+----------+----------+----------+-------------------+------------+--------+
+2 rows in set (0.00 sec)
+
+
+       SELECT * FROM NGOMA;
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+| ID | FNAME       | LNAME    | GENDER | PROVINCE | DISTRICT | SECTOR     | EMAIL              | PHONE      | CELL      |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+|  1 | MUHINDA     | ONOLINE  | FEMALE | SOUTH    | RUHANGO  | KINAZI     | MUHINDA@GMAIL.COM  |  785555444 | RUTABO    |
+|  2 | RUTHA       | JOEL     | MALE   | SOUTH    | RUHANGO  | KINIHIRA   | JOEDA@GMAIL.COM    | 2147483647 | RUTWEO    |
+|  3 | MUJAWAMARIA | CLAUDINE | FEMALE | NORTH    | RLINDOO  | KAMENA     | CLUADINA@GMAIL.COM | 2147483647 | RUHOGO    |
+|  4 | MURUNGI     | PEACE    | FEMALE | WEST     | RUBAVU   | MUHAZIA    | PEACEA@GMAIL.COM   |   78987644 | GITWA     |
+|  5 | NYIRANZIZA  | FELECITE | FEMALE | SOUTH    | GICUMBI  | KAGEYO     | FELECIA@GMAIL.COM  |    7955644 | GAHANGA   |
+|  6 | MUSONI      | RODRIGUE | MALE   | KIGALI   | GASABO   | KIMIHURURA | MUSONI@GMAIL.COM   |  785530042 | GASHUSHYA |
+|  7 | MUHIZI      | VEDASTE  | MALE   | KIGALI   | KICIKIRO | KARAMA     | MUHIZI@GMAIL.COM   | 2147483647 | GATENGA   |
+|  8 | NIYERA      | PELINE   | FEMALE | EAST     | KAYONZA  | KIMIHURURA | NIYERA@GMAIL.COM   |  796630042 | GASHUSHYA |
+|  9 | IRADUNDA    | OLIVIER  | MALE   | KIGALI   | KICIKIRO | KARAMA     | OLIVIERI@GMAIL.COM | 2147483647 | GATENGA   |
+| 10 | IRADUNDA    | OBED     | MALE   | KIGALI   | KICIKIRO | KARAMA     | OBED@GMAIL.COM     | 2147483647 | GATENGOA  |
++----+-------------+----------+--------+----------+----------+------------+--------------------+------------+-----------+
+10 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
