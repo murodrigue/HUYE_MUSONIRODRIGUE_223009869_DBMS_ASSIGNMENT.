@@ -1,0 +1,466 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database DATABASEMANAGEMENTSYSTEM;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> USE DATABASEMANAGEMENTSYSTEM;
+Database changed
+mysql> create table CLIENT_MASTER (CientNO INT (10) PRIMARY KEY ,NAME VARCHAR (34), ADDRESS VARCHAR (19),CITY VARCHAR (28),STATE VARCHAR (30), BAL_DUE INT );
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> INSERT INTO CLIENT_MASTER VALUES (101,"RODRIGUE","RUBAVU","GISENYI","RWANDA",200000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO CLIENT_MASTER VALUES (102,"SERIGE","GASABO","KIGALI","RWANDA",250000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO CLIENT_MASTER VALUES (103,"MAGUFURI","KARAMA","DALSALAM","TANZANIA",1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> INSERT INTO CLIENT_MASTER VALUES (103,"MAGUFURI","KARAMA","DALSALAM","TANZANIA",1000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql>  INSERT INTO CLIENT_MASTER VALUES (103,"MAGUFURI","KARAMA","DALSALAM","TANZANIA",5000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO CLIENT_MASTER VALUES (104,"KISEKED","BUKAVU","BUJUMBURA","BURUNDI",5100);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO CLIENT_MASTER VALUES (105,"JOYCE","KITCHANGA","KAMPALA","UGANDA",4000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT* FROM CLIENT_MASTER;
++---------+----------+-----------+-----------+----------+---------+
+| CientNO | NAME     | ADDRESS   | CITY      | STATE    | BAL_DUE |
++---------+----------+-----------+-----------+----------+---------+
+|     101 | RODRIGUE | RUBAVU    | GISENYI   | RWANDA   |  200000 |
+|     102 | SERIGE   | GASABO    | KIGALI    | RWANDA   |  250000 |
+|     103 | MAGUFURI | KARAMA    | DALSALAM  | TANZANIA |    5000 |
+|     104 | KISEKED  | BUKAVU    | BUJUMBURA | BURUNDI  |    5100 |
+|     105 | JOYCE    | KITCHANGA | KAMPALA   | UGANDA   |    4000 |
++---------+----------+-----------+-----------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+
+
+mysql> ^C
+mysql> SELECT NAME FROM CLIENT_MASTER WHERE BAL_DUE>5000;
++----------+
+| NAME     |
++----------+
+| RODRIGUE |
+| SERIGE   |
+| KISEKED  |
++----------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE TABLE CLIENT_MASTER SET BAL_DUE=5100 WHERE ClientNO=103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE CLIENT_MASTER SET BAL_DUE=5100 WHERE ClientNO=103' at line 1
+mysql>  UPDATE CLIENT_MASTER SET BAL_DUE=5100 WHERE ClientNO=103;
+ERROR 1054 (42S22): Unknown column 'ClientNO' in 'where clause'
+mysql>  UPDATE CLIENT_MASTER SET BAL_DUE=5100 WHERE ClientNO=103;
+ERROR 1054 (42S22): Unknown column 'ClientNO' in 'where clause'
+mysql>  UPDATE TABLE CLIENT_MASTER SET BAL_DUE=5100 WHERE Cieentno=103;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE CLIENT_MASTER SET BAL_DUE=5100 WHERE Cieentno=103' at line 1
+mysql>  UPDATE  CLIENT_MASTER SET BAL_DUE=5100 WHERE CientNO=103;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select* from client_master;
++---------+----------+-----------+-----------+----------+---------+
+| CientNO | NAME     | ADDRESS   | CITY      | STATE    | BAL_DUE |
++---------+----------+-----------+-----------+----------+---------+
+|     101 | RODRIGUE | RUBAVU    | GISENYI   | RWANDA   |  200000 |
+|     102 | SERIGE   | GASABO    | KIGALI    | RWANDA   |  250000 |
+|     103 | MAGUFURI | KARAMA    | DALSALAM  | TANZANIA |    5100 |
+|     104 | KISEKED  | BUKAVU    | BUJUMBURA | BURUNDI  |    5100 |
+|     105 | JOYCE    | KITCHANGA | KAMPALA   | UGANDA   |    4000 |
++---------+----------+-----------+-----------+----------+---------+
+5 rows in set (0.00 sec)
+
+mysql>
+mysql>  alter table client_master rename to client12;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select*From client12;
++---------+----------+-----------+-----------+----------+---------+
+| CientNO | NAME     | ADDRESS   | CITY      | STATE    | BAL_DUE |
++---------+----------+-----------+-----------+----------+---------+
+|     101 | RODRIGUE | RUBAVU    | GISENYI   | RWANDA   |  200000 |
+|     102 | SERIGE   | GASABO    | KIGALI    | RWANDA   |  250000 |
+|     103 | MAGUFURI | KARAMA    | DALSALAM  | TANZANIA |    5100 |
+|     104 | KISEKED  | BUKAVU    | BUJUMBURA | BURUNDI  |    5100 |
+|     105 | JOYCE    | KITCHANGA | KAMPALA   | UGANDA   |    4000 |
++---------+----------+-----------+-----------+----------+---------+
+5 rows in set (0.01 sec)
+
+mysql> select bal_due as "BALANCE" from client12;
++---------+
+| BALANCE |
++---------+
+|  200000 |
+|  250000 |
+|    5100 |
+|    5100 |
+|    4000 |
++---------+
+5 rows in set (0.00 sec)
+
+mysql>
+
+mysql> create table DEPARTMENTS (DEP_id INT PRIMARY KEY , DEP_NAME VARCHAR (20),PROJECT VARCHAR (34),BUDGET INT, DEP_MANAGER VARCHAR (30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE EMPLOYEES (EMP_ID INT PRIMARY KEY NOT NULL,EMP_NAME VARCHAR (24),EMP_ADDRESS VARCHAR (32),DEP_ID INT , FOREIGN KEY (DEP_ID) REFERENCES DEPARTMENTS(DEP_ID));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(11,"ICT","SOFTWARE DEVELOPMENT",10000000,"RODRIGUE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(22,"PRODUCTION","NEW PRODUCT DEV",20000000,"CLAUDINE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(33,"SALES","REASARCH & DEV",15000000,"FABIOLLA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(44,"ADMINISTRATION","MINING",670000,"NIYERA");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO DEPARTMENTS VALUES(55,"MANAGEMENT","WATER TREATMENT",90000000,"JAPHET");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM DEPARTMENTS;
++--------+----------------+----------------------+----------+-------------+
+| DEP_id | DEP_NAME       | PROJECT              | BUDGET   | DEP_MANAGER |
++--------+----------------+----------------------+----------+-------------+
+|     11 | ICT            | SOFTWARE DEVELOPMENT | 10000000 | RODRIGUE    |
+|     22 | PRODUCTION     | NEW PRODUCT DEV      | 20000000 | CLAUDINE    |
+|     33 | SALES          | REASARCH & DEV       | 15000000 | FABIOLLA    |
+|     44 | ADMINISTRATION | MINING               |   670000 | NIYERA      |
+|     55 | MANAGEMENT     | WATER TREATMENT      | 90000000 | JAPHET      |
++--------+----------------+----------------------+----------+-------------+
+5 rows in set (0.00 sec)
+
+
+
+mysql>  INSERT INTO EMPLOYEES VALUES(111,"MANZI","RUBAVU",11);
+Query OK, 1 row affected (0.01 sec)
+
+mysql>  INSERT INTO EMPLOYEES VALUES(222,"MANIRAHO","RUHANGO",111);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEES VALUES(333,"MUNGUYIKO","RULINDO",33);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEES VALUES(444,"ANGELIC","MUHANGA",44);
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEES VALUES(555,"MARIE","KAYONZA",55);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT*FROM EMPLOYEES;
++--------+-----------+-------------+--------+
+| EMP_ID | EMP_NAME  | EMP_ADDRESS | DEP_ID |
++--------+-----------+-------------+--------+
+|    111 | MANZI     | RUBAVU      |     11 |
+|    222 | MANIRAHO  | RUHANGO     |    111 |
+|    333 | MUNGUYIKO | RULINDO     |     33 |
+|    444 | ANGELIC   | MUHANGA     |     44 |
+|    555 | MARIE     | KAYONZA     |     55 |
++--------+-----------+-------------+--------+
+5 rows in set (0.00 sec
+
+
+
+
+
+
+mysql> SELECT EMP_NAME ,DEP_NAME FROM EMPLOYEES LEFT OUTER JOIN DEPARTMENTS ON EMPLOYEES.DEP_ID=DEPARTMENTS.DEP_ID;
++-----------+----------------+
+| EMP_NAME  | DEP_NAME       |
++-----------+----------------+
+| MANZI     | ICT            |
+| MANIRAHO  | NULL           |
+| MUNGUYIKO | SALES          |
+| ANGELIC   | ADMINISTRATION |
+| MARIE     | MANAGEMENT     |
++-----------+----------------+
+
+
+
+
+mysql>  SELECT EMP_NAME ,DEP_NAME FROM EMPLOYEES RIGHT OUTER JOIN DEPARTMENTS ON EMPLOYEES.DEP_ID=DEPARTMENTS.DEP_ID;
++-----------+----------------+
+| EMP_NAME  | DEP_NAME       |
++-----------+----------------+
+| MANZI     | ICT            |
+| NULL      | PRODUCTION     |
+| MUNGUYIKO | SALES          |
+| ANGELIC   | ADMINISTRATION |
+| MARIE     | MANAGEMENT     |
++-----------+----------------+
+5 rows in set (0.00 sec)
+
+
+
+
+mysql> ALTER TABLE EMPLOYEES ADD COLUMN SALARY INT ;
+Query OK, 5 rows affected (0.06 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE EMPLOYEES SET SALARY=2500 WHERE EMP_ID=111;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEES SET SALARY=3000 WHERE EMP_ID=222;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEES SET SALARY=2500 WHERE EMP_ID=333;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEES SET SALARY=3400 WHERE EMP_ID=444;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE EMPLOYEES SET SALARY=5000 WHERE EMP_ID=555;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+
+
+
+mysql> SELECT*FROM EMPLOYEES;
++--------+-----------+-------------+--------+--------+
+| EMP_ID | EMP_NAME  | EMP_ADDRESS | DEP_ID | SALARY |
++--------+-----------+-------------+--------+--------+
+|    111 | MANZI     | RUBAVU      |     11 |   2500 |
+|    222 | MANIRAHO  | RUHANGO     |    111 |   3000 |
+|    333 | MUNGUYIKO | RULINDO     |     33 |   2500 |
+|    444 | ANGELIC   | MUHANGA     |     44 |   3400 |
+|    555 | MARIE     | KAYONZA     |     55 |   5000 |
++--------+-----------+-------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT* FROM EMPLOYEES WHERE SALARY> (SELECT AVG(SALARY) FROM EMPLOYEES);
++--------+----------+-------------+--------+--------+
+| EMP_ID | EMP_NAME | EMP_ADDRESS | DEP_ID | SALARY |
++--------+----------+-------------+--------+--------+
+|    444 | ANGELIC  | MUHANGA     |     44 |   3400 |
+|    555 | MARIE    | KAYONZA     |     55 |   5000 |
++--------+----------+-------------+--------+--------+
+2 rows in set (0.02 sec)
+
+mysql>
+
+4.
+mysql> INSERT INTO STUDENT VALUES("S22","BAHATI INNOCENT","MALE",23,"BUSINESS");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO STUDENT VALUES("S22","BAHATI INNOCENT","MALE",23,"BUSINESS");
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO STUDENT VALUES("S33","MUJAWAMARIA CLAUDINE","FEMALE",19,"BIT");
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  INSERT INTO STUDENT VALUES("S44","NIYIGENA CLAUDINE","FEMALE",18,"NURSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT*FROM STUDENT;
++-----------+----------------------+--------+------+------------+
+| STUDENTID | FULLNAMES            | GENDER | AGE  | DEPARTMENT |
++-----------+----------------------+--------+------+------------+
+| S11       | MUSONI RODRIGUE      | MALE   |   25 | BIT        |
+| S22       | BAHATI INNOCENT      | MALE   |   23 | BUSINESS   |
+| S33       | MUJAWAMARIA CLAUDINE | FEMALE |   19 | BIT        |
+| S44       | NIYIGENA CLAUDINE    | FEMALE |   18 | NURSE      |
++-----------+----------------------+--------+------+------------+
+4 rows in set (0.00 sec)
+
+
+
+
+  5.
+mysql> DELETE FROM STUDENT WHERE AGE <20;
+Query OK, 2 rows affected (0.02 sec)
+
+mysql> SELECT*FROM STUDENT;
++-----------+-----------------+--------+------+------------+
+| STUDENTID | FULLNAMES       | GENDER | AGE  | DEPARTMENT |
++-----------+-----------------+--------+------+------------+
+| S11       | MUSONI RODRIGUE | MALE   |   25 | BIT        |
+| S22       | BAHATI INNOCENT | MALE   |   23 | BUSINESS   |
++-----------+-----------------+--------+------+------------+
+2 rows in set (0.00 sec)
+
+
+QUESTION 9.
+
+mysql> CREATE TABLE EMPLOYEESES (EMPLOYEE_ID VARCHAR(30) PRIMARY KEY, FIRST_NAME VARCHAR(20), LAST_NAME VARCHAR(20), EMAIL VARCHAR(16), PHONE_NUMBER VARCHAR(12), HIRE_DATE DATE, SALARY INT, COMMISSION_PCT DECIMAL(5,2), MANAGER_ID INT, DEPARTMENT_ID INT);
+Query OK, 0 rows affected (0.02 sec)
+
+
+mysql> INSERT INTO EMPLOYEESES VALUES("EP11","MUSONI","RODRIGUE","ROD@GMAIL.COM","0785530042","12-DEC-2022",5000,1580.45,100,111);
+Query OK, 1 row affected, 2 warnings (0.01 sec)
+
+mysql>  INSERT INTO EMPLOYEESES VALUES("EP22","NIYERA","AUSTIN","EM@GMAIL.COM","0785530000","12/3/2012",6000,17777.45,101,333);
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEESES VALUES("EP33","IRADUKUNDA","FANNY","MUD@GMAIL.COM","0735530042","12/05/2022",3000,1333.45,100,555);
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEESES VALUES("EP44","IRADUKUNDA","FABIOLA","FABD@GMAIL.COM","07985530042","11/2/2009",4800,1580.45,101,70);
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEESES VALUES("EP55","UMUHOZA","JAPHET","MUHOZAD@GMAIL.COM","0795030042","09/6/2022",7000,1567.45,102,60);
+Query OK, 1 row affected, 3 warnings (0.00 sec)
+
+mysql>  INSERT INTO EMPLOYEESES VALUES("EP66","UWIMANA","ANET","ANETD@GMAIL.COM","0788553042","12/7/2023",5000,1580.45,100,80);
+Query OK, 1 row affected, 2 warnings (0.00 sec)
+
+
+mysql> SELECT * FROM EMPLOYEESES;
++-------------+------------+-----------+------------------+--------------+------------+--------+----------------+------------+---------------+
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL            | PHONE_NUMBER | HIRE_DATE  | SALARY | COMMISSION_PCT | MANAGER_ID | DEPARTMENT_ID |
++-------------+------------+-----------+------------------+--------------+------------+--------+----------------+------------+---------------+
+| EP11        | MUSONI     | RODRIGUE  | ROD@GMAIL.COM    | 0785530042   | 0000-00-00 |   5000 |         999.99 |        100 |           111 |
+| EP22        | NIYERA     | AUSTIN    | EM@GMAIL.COM     | 0785530000   | 0000-00-00 |   6000 |         999.99 |        101 |           333 |
+| EP33        | IRADUKUNDA | FANNY     | MUD@GMAIL.COM    | 0735530042   | 0000-00-00 |   3000 |         999.99 |        100 |           555 |
+| EP44        | IRADUKUNDA | FABIOLA   | FABD@GMAIL.COM   | 07985530042  | 0000-00-00 |   4800 |         999.99 |        101 |            70 |
+| EP55        | UMUHOZA    | JAPHET    | MUHOZAD@GMAIL.CO | 0795030042   | 0000-00-00 |   7000 |         999.99 |        102 |            60 |
+| EP66        | UWIMANA    | ANET      | ANETD@GMAIL.COM  | 0788553042   | 0000-00-00 |   5000 |         999.99 |        100 |            80 |
++-------------+------------+-----------+------------------+--------------+------------+--------+----------------+------------+---------------+
+6 rows in set (0.00 sec)
+
+
+9.A.
+
+
+mysql> SELECT Employee_Id, First_Name, Last_Name, Salary FROM EmployeesES;
++-------------+------------+-----------+--------+
+| Employee_Id | First_Name | Last_Name | Salary |
++-------------+------------+-----------+--------+
+| EP11        | MUSONI     | RODRIGUE  |   5000 |
+| EP22        | NIYERA     | AUSTIN    |   6000 |
+| EP33        | IRADUKUNDA | FANNY     |   3000 |
+| EP44        | IRADUKUNDA | FABIOLA   |   4800 |
+| EP55        | UMUHOZA    | JAPHET    |   7000 |
+| EP66        | UWIMANA    | ANET      |   5000 |
++-------------+------------+-----------+--------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+QUESTION.10.
+
+
+
+mysql> CREATE TABLE SALES (SALES_NO VARCHAR(5) PRIMARY KEY ,SALESNAME VARCHAR (23), BRANCH VARCHAR (24),SALESAMOUNT INT (20),DOP VARCHAR (30));
+Query OK, 0 rows affected, 1 warning (0.03 sec)
+
+mysql> INSERT INTO SALES VALUES ("SAL11","MAIZE","RUB",120,"12/02/2024");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM SALES;
++----------+-----------+--------+-------------+------------+
+| SALES_NO | SALESNAME | BRANCH | SALESAMOUNT | DOP        |
++----------+-----------+--------+-------------+------------+
+| SAL11    | MAIZE     | RUB    |         120 | 12/02/2024 |
++----------+-----------+--------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE SALES SET DOP="12-02-2024" WHERE SALES_NO="SAL11";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO SALES VALUES ("SAL22","BEAN","RUH",150,"12-MATC-2024");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALES VALUES ("SAL33","RICE","RUL",140,"30-MAY-2024");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALES VALUES ("SAL44","MAIZE","RUB",120,"12-SEPT-2024");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SALES VALUES ("SAL55","MAIZE","RUB",120,"12-DEC-2024");
+Query OK, 1 row affected (0.00 sec)
+
+mysql>  UPDATE SALES SET DOP="13-SEP-2024" WHERE SALES_NO="SAL11";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+10.A.
+
+mysql> SELECT*FROM SALES;
++----------+-----------+--------+-------------+--------------+
+| SALES_NO | SALESNAME | BRANCH | SALESAMOUNT | DOP          |
++----------+-----------+--------+-------------+--------------+
+| SAL11    | MAIZE     | RUB    |         120 | 13-SEP-2024  |
+| SAL22    | BEAN      | RUH    |         150 | 12-MATC-2024 |
+| SAL33    | RICE      | RUL    |         140 | 30-MAY-2024  |
+| SAL44    | MAIZE     | RUB    |         120 | 12-SEPT-2024 |
+| SAL55    | MAIZE     | RUB    |         120 | 12-DEC-2024  |
++----------+-----------+--------+-------------+--------------+
+5 rows in set (0.00 sec)
+
+10.B.
+
+mysql>  SELECT Branch, SUM(SalesAmount) AS "TotalSales" FROM Sales GROUP BY Branch;
++--------+------------+
+| Branch | TotalSales |
++--------+------------+
+| RUB    |        360 |
+| RUH    |        150 |
+| RUL    |        140 |
++--------+------------+
+3 rows in set (0.00 sec)
+
+10.C.
+
+mysql> SELECT Branch, AVG(SalesAmount) AS "AvgSales" FROM Sales GROUP BY Branch;
++--------+----------+
+| Branch | AvgSales |
++--------+----------+
+| RUB    | 120.0000 |
+| RUH    | 150.0000 |
+| RUL    | 140.0000 |
++--------+----------+
+3 rows in set (0.01 sec)
+
+10.D.
+
+
+mysql>  SELECT SalesName, DOP FROM Sales WHERE DOP LIKE "%DEC%";
++-----------+-------------+
+| SalesName | DOP         |
++-----------+-------------+
+| MAIZE     | 12-DEC-2024 |
++-----------+-------------+
+1 row in set (0.01 sec)
+
+
+10.E.
+
+
+
+
+
+
